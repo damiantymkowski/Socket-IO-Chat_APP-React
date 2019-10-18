@@ -1,7 +1,7 @@
  <?php
 	$status = ['status' => 9];	//default status code: unidentified error
 
- 	include ('incl/db_init.php');
+ 	include ('includes/db_init.php');
  	$post = json_decode(readfile('php://input'));
  	$stmt = $pdo -> prepare ('select name from users where name = ?');
  	$stmt -> execute ([$post['name']]);
