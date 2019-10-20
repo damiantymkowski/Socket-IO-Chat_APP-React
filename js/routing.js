@@ -1,13 +1,14 @@
 const urlDataJSON = "https://my-json-server.typicode.com/damiantymkowski/Whatever/db";
+const loginBox = document.querySelector(".welcomeBox__loginBox");
 let home;
 let register;
+
 fetch(urlDataJSON).then(
-    function(dataUI) {return dataUI.json();}
+    function(dataUI) {return dataUI.json(); }
 )
 
 .then(
     function(json){
-
         home = json.home[0]["html"];
         register = json.register[0]["html"];
     }
@@ -21,28 +22,28 @@ fetch(urlDataJSON).then(
     
     window.onpopstate = () => {
         mainBox.innerHTML = routes[window.location.pathname]
+        loginBox.style.backgroundColor = "#2C2F33";
     }
-    
+
     const mainBox = document.querySelector(".welcomeBox__loginForm");
     mainBox.innerHTML = routes[window.location.pathname];
-    
+
     const onNavigate = (pathname) => {
-        window.history.pushState(
-            {},
-            pathname,
-            window.location.origin + pathname
-        )
+        window.history.pushState({}, pathname, window.location.origin + pathname)
         mainBox.innerHTML = routes[pathname]
-        
     }
+
+    onNavigate('/');
     const registerButton = document.getElementById('wannaRegisterBtn');
 
     registerButton.addEventListener("click", ()=> {
         onNavigate('/register')
+        loginBox.style.animation = "1s boxBackgroundColor";
+        loginBox.style.backgroundColor = "#2b2b53";
         const createAccountBtn = document.querySelector('#registerBtn');
 
         createAccount = () =>{
-            const registerURL = 'Whatever_server/adduser.php';
+            const registerURL = `Whatever/Whatever_server/adduser.php`;
             const nicknameInput = document.querySelector('#loginNickname').value;
             const passwordInput = document.querySelector('#loginPassword').value;
     
@@ -62,7 +63,9 @@ fetch(urlDataJSON).then(
         .then(res => {
             console.log("Dodałem użytkownika:");
             console.log(res);
-    })
+    }).catch(function(){
+            console.log("Błąd");
+    });
     
     };
     createAccountBtn.addEventListener("click", createAccount);
