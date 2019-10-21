@@ -43,7 +43,7 @@ fetch(urlDataJSON).then(
         const createAccountBtn = document.querySelector('#registerBtn');
 
         createAccount = () =>{
-            const registerURL = `Whatever/Whatever_server/adduser.php`;
+            const registerURL = `whatever/server/adduser.php`;
             const nicknameInput = document.querySelector('#loginNickname').value;
             const passwordInput = document.querySelector('#loginPassword').value;
             const errorHandler = document.querySelector('.welcomeBox__loginForm--text');
