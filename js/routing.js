@@ -1,6 +1,7 @@
 const contentBox = document.querySelector(".welcomeBox__loginForm");
 import { homePage } from './pages/home.js'
 import { registerPage } from './pages/register.js'
+import { userRegister } from './auth.js'
 
 const routes = {
     '/' : homePage,
@@ -29,6 +30,7 @@ const button = document.querySelector('#wannaRegisterBtn');
 
 button.addEventListener("click", ()=> {
     onNavigate('/register');
+    userRegister();
 });
 }
 
