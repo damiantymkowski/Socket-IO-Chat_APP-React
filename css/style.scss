@@ -129,6 +129,11 @@ button:focus {
         }
     }
     &__leftPanel{
+        width: 30%;
+        display:flex;
+        flex-direction: column;
+        flex-basis: 100%;
+        flex: 1;
         &--text{
             color: $ui-color;
             font-weight: 200;
@@ -156,5 +161,36 @@ button:focus {
             margin-left: -62px;
             margin-top: 18px;
         }
+    }
+
+    &__chatBox{
+        display: flex;
+        width: 70%;
+        &--inputMessage{
+            height:30px;
+            width:90%;
+            margin-top: 385px;
+            background-color: unset;
+            border: unset;
+            border-bottom: 1px solid $ui-color_dark;
+            resize: none;
+            color: $ui-color;
+
+        }
+    }
+
+    &__footer{
+        display:flex;
+        width: 100%;
+        height:35px;
+        background-color: #444542;
+        color: $ui-color;
+        justify-content: center;
+        font-size: 13px;
+        align-items: center;
+    }
+    &__content{
+        display: flex;
+        flex: 50%;
     }
 }
